@@ -1,3 +1,4 @@
+import UploadIcon from "@mui/icons-material/Upload";
 import {
   AppBar,
   Avatar,
@@ -29,17 +30,22 @@ export const AuthUserPage = () => {
           p: 2,
         }}
       >
-        <Avatar
-          sx={{
-            margin: "auto",
-            width: "100px",
-            height: "100px",
-            marginBottom: 2,
-          }}
-          variant="rounded"
-        />
+        <Box sx={{ marginBottom: 2 }}>
+          <Avatar
+            sx={{
+              margin: "auto",
+              width: "100px",
+              height: "100px",
+              marginBottom: 1,
+            }}
+            variant="rounded"
+          />
+          <Button startIcon={<UploadIcon />} variant="text">
+            Upload
+          </Button>
+        </Box>
 
-        <TextField label="Display Name" sx={{ marginBottom: 2 }} />
+        <TextField label="Display Name" sx={{ marginBottom: 4 }} />
 
         <Button>Save Changes</Button>
       </Box>
