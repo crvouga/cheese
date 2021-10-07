@@ -35,7 +35,7 @@ export const ProfileDisplayNameForm = ({
       >
         <TextField
           label="Display Name"
-          sx={{ marginBottom: 2 }}
+          sx={{ marginBottom: 1 }}
           value={runningDisplayName}
           onChange={(event) => {
             setRunningDisplayName(event.target.value);

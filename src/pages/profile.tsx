@@ -46,13 +46,8 @@ export const ProfilePage = () => {
             onUpdate={updateDisplayName}
           />
 
-          <Divider
-            sx={{
-              marginY: 2,
-            }}
-          />
-
           <Button
+            sx={{ marginTop: 2 }}
             onClick={() => {
               signOut();
             }}

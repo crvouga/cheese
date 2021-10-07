@@ -24,7 +24,9 @@ export const HomePage = () => {
           },
         }}
       >
-        <Button>Open GCU Fake ID</Button>
+        <Link to="/gcu">
+          <Button>Open GCU Fake ID</Button>
+        </Link>
       </Box>
     </>
   );
