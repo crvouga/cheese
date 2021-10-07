@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { AuthUserAvatar } from "../AuthUserAvatar";
 import LaunchIcon from "@mui/icons-material/Launch";
+
 export const HomePage = () => {
   return (
     <>
