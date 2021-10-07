@@ -1,10 +1,10 @@
 import {
-  Dialog,
-  DialogActions,
-  DialogTitle,
   AppBar,
   Button,
   Container,
+  Dialog,
+  DialogActions,
+  DialogTitle,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -74,7 +74,7 @@ export const ProfilePage = () => {
           </Button>
 
           <Dialog open={state === "opened"} onClose={handleCancel}>
-            <DialogTitle>Sign out of Fake ID?</DialogTitle>
+            <DialogTitle>Sign out of Cheese 🧀?</DialogTitle>
             <DialogActions>
               <Button variant="text" fullWidth={false} onClick={handleCancel}>
                 Cancel

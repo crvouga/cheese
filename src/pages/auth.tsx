@@ -10,7 +10,7 @@ export const AuthPage = () => {
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" sx={{ flex: 1 }} align="center">
-            Fake ID
+            Cheese 🧀
           </Typography>
         </Toolbar>
       </AppBar>

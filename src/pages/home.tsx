@@ -11,7 +11,7 @@ export const HomePage = () => {
         <Container maxWidth="sm" disableGutters>
           <Toolbar>
             <Typography variant="h6" sx={{ flex: 1 }}>
-              Fake ID
+              Cheese 🧀
             </Typography>
             <Link to="/profile">
               <AuthUserAvatar />

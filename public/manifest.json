@@ -1,6 +1,6 @@
 {
-  "short_name": "Fake ID",
-  "name": "Fake ID",
+  "short_name": "Cheese",
+  "name": "Cheese",
   "icons": [
     {
       "src": "pwa/manifest-icon-192.png",
