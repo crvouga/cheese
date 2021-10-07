@@ -1,7 +1,7 @@
 import React from "react";
 import { PURPLE_GRADIENT } from "./theme";
 
-export const GCUAppBar = () => {
+export const GCUTopBar = ({ title }: { title: string }) => {
   return (
     <div
       style={{
@@ -20,9 +20,10 @@ export const GCUAppBar = () => {
         style={{
           fontWeight: "bold",
           fontSize: "1.2rem",
+          color: "#fff",
         }}
       >
-        Student ID
+        {title}
       </div>
     </div>
   );

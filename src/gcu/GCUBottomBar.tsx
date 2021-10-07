@@ -75,7 +75,7 @@ export const GCUBottomBar = () => {
         color: GCU_COLOR.textSecondary,
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         backgroundColor: GCU_COLOR.white,
         borderTop: `solid 1px ${GCU_COLOR.border}`,
       }}

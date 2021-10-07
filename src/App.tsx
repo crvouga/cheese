@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { useAuth } from "./data-access";
-import { GCUApp } from "./gcu/gcu";
+import { GCUApp } from "./gcu/GCUApp";
 import { LoadingPage } from "./LoadingPage";
 import { AuthPage } from "./pages/auth";
 import { HomePage } from "./pages/home";

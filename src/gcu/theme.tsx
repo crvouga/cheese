@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material";
 
 export const GCU_COLOR = {
   darkPurple: "#440b66",
+  green: "#1d804b",
   purple: "#4e2399",
   lightPurple: "#532496",
   extraLightPurple: "#e5deee",
@@ -19,7 +20,7 @@ export const GCU_ASSETS = {
 
 export const SPACING = "1rem";
 
-export const BORDER_RADIUS = "12px";
+export const BORDER_RADIUS = "8px";
 
 export const spacing = (n: number) => {
   return `calc(${SPACING} * ${n})`;
