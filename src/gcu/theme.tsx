@@ -5,6 +5,7 @@ export const GCU_COLOR = {
   extraLightPurple: "#e5deee",
   white: "#ffffff",
   orange: "#fe6901",
+  border: "rgba(0, 0, 0, 0.2)",
 };
 
 export const PURPLE_GRADIENT = `linear-gradient(0.25turn, ${GCU_COLOR.darkPurple}, ${GCU_COLOR.purple})`;

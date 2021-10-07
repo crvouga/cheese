@@ -1,7 +1,8 @@
 import React from "react";
 import { useAuthUser, useProfile } from "../data-access";
+import { GCUAppBar } from "./GCUAppBar";
 import { GCUStudentIdCard } from "./GCUStudentIdCard";
-import { GCU_COLOR, spacing } from "./theme";
+import { spacing, GCU_COLOR } from "./theme";
 
 export const GCUApp = () => {
   const { userId } = useAuthUser();
@@ -13,13 +14,16 @@ export const GCUApp = () => {
         style={{
           background: GCU_COLOR.white,
           height: "100vh",
-          padding: spacing(1),
         }}
       >
-        <GCUStudentIdCard
-          src={profileState.profile.profilePictureUrl}
-          name={profileState.profile.displayName}
-        />
+        <GCUAppBar />
+
+        <div style={{ padding: spacing(1) }}>
+          <GCUStudentIdCard
+            src={profileState.profile.profilePictureUrl}
+            name={profileState.profile.displayName}
+          />
+        </div>
       </div>
     );
   }

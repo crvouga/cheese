@@ -1,8 +1,6 @@
 import React from "react";
 import { GCULogoLong } from "./GCULogoLong";
 import { BORDER_RADIUS, GCU_COLOR, PURPLE_GRADIENT, spacing } from "./theme";
-// @ts-ignore
-import Barcode from "react-barcode";
 
 const Header = () => {
   return (
@@ -69,6 +67,7 @@ export const GCUStudentIdCard = ({
         borderRadius: BORDER_RADIUS,
         overflow: "hidden",
         width: "100%",
+        border: `solid 1px ${GCU_COLOR.border}`,
       }}
     >
       <Header />
@@ -85,7 +84,10 @@ export const GCUStudentIdCard = ({
       >
         <img
           style={{
-            width: "66.66%",
+            width: "80%",
+            aspectRatio: "1",
+            objectFit: "cover",
+            borderRadius: BORDER_RADIUS,
           }}
           src={src}
           alt={name}
@@ -105,7 +107,7 @@ export const GCUStudentIdCard = ({
           Student
         </span>
 
-        <Barcode value="https://www.labnol.org/reverse/" />
+        {/* <Barcode value="https://www.labnol.org/reverse/" /> */}
       </div>
 
       <Footer />
