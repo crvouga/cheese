@@ -1,9 +1,10 @@
 import { Box, Button, AppBar, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import GoogleIcon from "@mui/icons-material/Google";
-import { signIn } from "../data-access";
+import { useAuth } from "../data-access";
 
 export const AuthPage = () => {
+  const { signIn } = useAuth();
   return (
     <>
       <AppBar position="sticky">

@@ -11,7 +11,7 @@ export const HomePage = () => {
           <Typography variant="h6" sx={{ flex: 1 }}>
             Fake ID
           </Typography>
-          <Link to="/auth-user">
+          <Link to="/profile">
             <AuthUserAvatar />
           </Link>
         </Toolbar>
