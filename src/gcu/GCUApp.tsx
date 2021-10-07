@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import React from "react";
 import { useAuthUser, useProfile } from "../data-access";
 import { GCUTopBar } from "./GCUTopBar";
-import { GCUBottomBar } from "./GCUBottomBar";
+import { GCUBottomBar, GCUBottomBarGutter } from "./GCUBottomBar";
 import { GCUStudentIdCard } from "./GCUStudentIdCard";
 import { spacing, theme } from "./theme";
 
@@ -25,6 +25,7 @@ export const GCUApp = () => {
         </div>
 
         <GCUBottomBar />
+        <GCUBottomBarGutter />
       </ThemeProvider>
     );
   }
