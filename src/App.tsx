@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { useAuth } from "./data-access";
-import { GCUApp } from "./gcu/GCUApp";
+import { GCURoot } from "./gcu";
 import { LoadingPage } from "./LoadingPage";
 import { AuthPage } from "./pages/auth";
 import { HomePage } from "./pages/home";
@@ -20,7 +20,7 @@ export const App = () => {
   return (
     <>
       <Switch>
-        <Route path="/gcu" component={GCUApp} />
+        <Route path="/gcu" component={GCURoot} />
         <Route path="/profile" component={ProfilePage} />
         <Route path="/" component={HomePage} />
       </Switch>

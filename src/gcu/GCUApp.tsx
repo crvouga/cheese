@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuthUser, useProfile } from "../data-access";
 import { PageLayout } from "../PageLayout";
-import { GCUAppProviders } from "./GCUAppProviders";
 import { GCUBottomBar } from "./GCUBottomBar";
 import { GCUStudentIdCard } from "./GCUStudentIdCard";
 import { GCUTopBar } from "./GCUTopBar";
-import { spacing } from "./theme";
+import { PURPLE_GRADIENT, spacing } from "./theme";
 
 export const GCUApp = () => {
   const { userId } = useAuthUser();
   const { profileState, updateProfile } = useProfile({ userId });
+
+  useEffect(() => {
+    window.document.body.style.background = PURPLE_GRADIENT;
+
+    return () => {
+      window.document.body.style.backgroundColor = "";
+    };
+  }, []);
 
   if (profileState.status !== "success") {
     return <></>;
   }
 
   return (
-    <GCUAppProviders>
+    <>
       <PageLayout
         topBar={<GCUTopBar title="Student ID" />}
         body={
@@ -25,6 +32,7 @@ export const GCUApp = () => {
               maxWidth: "480px",
               margin: "auto",
               padding: spacing(1),
+              background: "#fff",
             }}
           >
             <GCUStudentIdCard
@@ -41,6 +49,6 @@ export const GCUApp = () => {
         }
         bottomBar={<GCUBottomBar />}
       />
-    </GCUAppProviders>
+    </>
   );
 };
