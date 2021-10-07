@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import classes from "./GCULoadingBar.module.css";
-import { GCU_COLOR } from "./theme";
+import { GCU_COLOR, GCU_HEIGHTS } from "./theme";
 
 type IState = "rightToLeft" | "leftToRight";
 
@@ -36,7 +36,7 @@ export const GCULoadingBar = () => {
       <div
         style={{
           width: "100%",
-          height: "28px",
+          height: GCU_HEIGHTS.loadingBar,
           display: "bold",
           transform: state === "rightToLeft" ? "rotate(180deg)" : undefined,
         }}
