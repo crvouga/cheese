@@ -1,40 +1,59 @@
-import React, { useEffect, useRef } from "react";
-import { GCU_COLOR } from "./theme";
-import gsap from "gsap";
+import React, { useRef, useEffect, useState } from "react";
 import classes from "./GCULoadingBar.module.css";
+import { GCU_COLOR } from "./theme";
+
+type IState = "rightToLeft" | "leftToRight";
+
+const transition: { [state in IState]: IState } = {
+  leftToRight: "rightToLeft",
+  rightToLeft: "leftToRight",
+};
 
 export const GCULoadingBar = () => {
-  const leftRef = useRef<HTMLDivElement | null>(null);
-  const rightRef = useRef<HTMLDivElement | null>(null);
+  const [state, setState] = useState<IState>("leftToRight");
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (leftRef.current && rightRef.current) {
-      const timeline = gsap.timeline({
-        repeat: -1,
+    const onAnimationEnd = () => {
+      setState((state) => {
+        return transition[state];
       });
+    };
 
-      timeline
-        .from(leftRef.current, { width: "0%" })
-        .to(leftRef.current, { width: "100%", duration: 2 });
+    const element = ref.current;
+
+    if (element) {
+      element.addEventListener("animationend", onAnimationEnd);
+
+      return () => {
+        element.removeEventListener("animationend", onAnimationEnd);
+      };
     }
   }, []);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "28px",
-        display: "bold",
-      }}
-    >
+    <>
       <div
-        className={classes.leftToRight}
         style={{
-          backgroundColor: GCU_COLOR.green,
           width: "100%",
-          height: "100%",
+          height: "28px",
+          display: "bold",
+          transform: state === "rightToLeft" ? "rotate(180deg)" : undefined,
         }}
-      />
-    </div>
+      >
+        <div
+          ref={ref}
+          className={
+            state === "rightToLeft" ? classes.rightToLeft : classes.leftToRight
+          }
+          style={{
+            backgroundColor: GCU_COLOR.green,
+            width: "100%",
+            height: "100%",
+            transform: state === "rightToLeft" ? "rotate(-180deg)" : undefined,
+          }}
+        />
+      </div>
+    </>
   );
 };

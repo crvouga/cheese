@@ -26,6 +26,14 @@ export const spacing = (n: number) => {
   return `calc(${SPACING} * ${n})`;
 };
 
+export const GCU_HEIGHTS = {
+  loadingBar: "24px",
+  topBar: "56px",
+  bottomBar: "56px",
+  cardBar: "56px",
+  barCodeHeight: 72,
+};
+
 export const theme = createTheme({
   palette: {
     mode: "light",

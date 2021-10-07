@@ -1,5 +1,5 @@
 import React from "react";
-import { PURPLE_GRADIENT } from "./theme";
+import { GCU_HEIGHTS, PURPLE_GRADIENT } from "./theme";
 
 export const GCUTopBar = ({ title }: { title: string }) => {
   return (
@@ -9,7 +9,7 @@ export const GCUTopBar = ({ title }: { title: string }) => {
         top: 0,
         left: 0,
         width: "100vw",
-        height: "56px",
+        height: GCU_HEIGHTS.topBar,
         background: PURPLE_GRADIENT,
         display: "flex",
         alignItems: "center",

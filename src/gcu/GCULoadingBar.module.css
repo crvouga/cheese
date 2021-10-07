@@ -1,9 +1,23 @@
 .leftToRight {
-  animation: progressBar 3s ease-in-out infinite;
+  animation: leftToRight 2s ease-in-out;
   animation-fill-mode: both;
 }
 
-@keyframes progressBar {
+@keyframes leftToRight {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.rightToLeft {
+  animation: rightToLeft 2s ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes rightToLeft {
   0% {
     width: 0%;
   }

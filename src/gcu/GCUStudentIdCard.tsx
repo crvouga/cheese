@@ -1,16 +1,26 @@
 import React from "react";
 import { useBarcode } from "react-barcodes";
 import { GCULogoLong } from "./GCULogoLong";
-import { BORDER_RADIUS, GCU_COLOR, PURPLE_GRADIENT, spacing } from "./theme";
+import {
+  BORDER_RADIUS,
+  GCU_COLOR,
+  GCU_HEIGHTS,
+  PURPLE_GRADIENT,
+  spacing,
+} from "./theme";
 import CachedIcon from "@mui/icons-material/Cached";
 import { GCULoadingBar } from "./GCULoadingBar";
+
+const HEIGHT = "72px";
 
 const Header = () => {
   return (
     <div
       style={{
-        padding: spacing(1),
+        height: HEIGHT,
         background: PURPLE_GRADIENT,
+        display: "flex",
+        alignItems: "center",
       }}
     >
       <div
@@ -32,7 +42,10 @@ const Footer = () => {
     <div
       style={{
         background: PURPLE_GRADIENT,
-        padding: spacing(1),
+        height: HEIGHT,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <div
@@ -96,7 +109,7 @@ const Barcode = () => {
   const { inputRef } = useBarcode({
     value: "hello world",
     options: {
-      height: 48,
+      height: GCU_HEIGHTS.barCodeHeight,
       displayValue: false,
     },
   });

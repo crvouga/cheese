@@ -4,7 +4,7 @@ import HourglassEmptyOutlinedIcon from "@mui/icons-material/HourglassEmptyOutlin
 import MenuIcon from "@mui/icons-material/Menu";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import React from "react";
-import { GCU_COLOR, spacing } from "./theme";
+import { GCU_HEIGHTS, GCU_COLOR, spacing } from "./theme";
 
 const style = {
   width: "32px",
@@ -71,7 +71,7 @@ export const GCUBottomBar = () => {
         bottom: 0,
         left: 0,
         width: "100vw",
-        height: "56px",
+        height: GCU_HEIGHTS.bottomBar,
         color: GCU_COLOR.textSecondary,
         display: "flex",
         alignItems: "center",
