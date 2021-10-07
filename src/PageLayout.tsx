@@ -13,9 +13,11 @@ export const PageLayout = ({
     <div
       style={{
         height: "100%",
-        width: "100%",
+        maxHeight: "100%",
+        // width: "100%",
         display: "flex",
         flexDirection: "column",
+        // overflow: "hidden",
       }}
     >
       {topBar}

@@ -62,10 +62,6 @@ export const BottomBarAction = ({
   );
 };
 
-export const GCUBottomBarGutter = () => {
-  return <div style={{ height: GCU_HEIGHTS.bottomBar, width: "100vw" }} />;
-};
-
 export const GCUBottomBar = () => {
   return (
     <div
