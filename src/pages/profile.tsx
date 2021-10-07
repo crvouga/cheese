@@ -41,6 +41,7 @@ export const ProfilePage = () => {
             profilePictureUrl={profileState.profile.profilePictureUrl}
             onUpdate={updateProfilePicture}
           />
+
           <ProfileDisplayNameForm
             displayName={profileState.profile.displayName}
             onUpdate={updateDisplayName}
