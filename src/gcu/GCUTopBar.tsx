@@ -6,9 +6,6 @@ export const GCUTopBar = ({ title }: { title: string }) => {
     <div
       style={{
         zIndex: 10,
-        position: "sticky",
-        top: 0,
-        left: 0,
         width: "100vw",
         height: GCU_HEIGHTS.topBar,
         background: PURPLE_GRADIENT,

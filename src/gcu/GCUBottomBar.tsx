@@ -70,12 +70,7 @@ export const GCUBottomBar = () => {
   return (
     <div
       style={{
-        zIndex: 10,
-        position: "fixed",
-        top: "auto",
-        bottom: 0,
-        left: 0,
-        width: "100vw",
+        width: "100%",
         height: GCU_HEIGHTS.bottomBar,
         color: GCU_COLOR.textSecondary,
         display: "flex",

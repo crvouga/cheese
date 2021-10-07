@@ -1,10 +1,11 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
 import React from "react";
 import { useAuthUser, useProfile } from "../data-access";
-import { GCUTopBar } from "./GCUTopBar";
-import { GCUBottomBar, GCUBottomBarGutter } from "./GCUBottomBar";
+import { PageLayout } from "../PageLayout";
+import { GCUAppProviders } from "./GCUAppProviders";
+import { GCUBottomBar } from "./GCUBottomBar";
 import { GCUStudentIdCard } from "./GCUStudentIdCard";
-import { spacing, theme } from "./theme";
+import { GCUTopBar } from "./GCUTopBar";
+import { spacing } from "./theme";
 
 export const GCUApp = () => {
   const { userId } = useAuthUser();
@@ -15,26 +16,31 @@ export const GCUApp = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-
-      <GCUTopBar title="Student ID" />
-
-      <div style={{ maxWidth: "480px", margin: "auto", padding: spacing(1) }}>
-        <GCUStudentIdCard
-          src={profileState.profile.profilePictureUrl}
-          name={profileState.profile.displayName}
-          lastUpdatedDatetime={profileState.profile.gcuLastUpdatedDatetime}
-          onRefresh={() => {
-            updateProfile({
-              gcuLastUpdatedDatetime: new Date().toISOString(),
-            });
-          }}
-        />
-      </div>
-
-      <GCUBottomBar />
-      <GCUBottomBarGutter />
-    </ThemeProvider>
+    <GCUAppProviders>
+      <PageLayout
+        topBar={<GCUTopBar title="Student ID" />}
+        body={
+          <div
+            style={{
+              maxWidth: "480px",
+              margin: "auto",
+              padding: spacing(1),
+            }}
+          >
+            <GCUStudentIdCard
+              src={profileState.profile.profilePictureUrl}
+              name={profileState.profile.displayName}
+              lastUpdatedDatetime={profileState.profile.gcuLastUpdatedDatetime}
+              onRefresh={() => {
+                updateProfile({
+                  gcuLastUpdatedDatetime: new Date().toISOString(),
+                });
+              }}
+            />
+          </div>
+        }
+        bottomBar={<GCUBottomBar />}
+      />
+    </GCUAppProviders>
   );
 };
