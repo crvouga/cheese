@@ -1,15 +1,8 @@
-import {
-  Button,
-  AppBar,
-  Box,
-  Divider,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { BackButton } from "../BackButton";
-import { useProfile, useAuthUser, useAuth } from "../data-access";
+import { useAuth, useAuthUser, useProfile } from "../data-access";
 import { ProfileDisplayNameForm } from "./ProfileDisplayNameForm";
 import { ProfilePictureForm } from "./ProfilePictureForm";
 
