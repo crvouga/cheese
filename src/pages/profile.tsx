@@ -1,10 +1,20 @@
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import React from "react";
+import {
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  AppBar,
+  Button,
+  Container,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BackButton } from "../BackButton";
 import { useAuth, useAuthUser, useProfile } from "../data-access";
 import { ProfileDisplayNameForm } from "./ProfileDisplayNameForm";
 import { ProfilePictureForm } from "./ProfilePictureForm";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
 export const ProfilePage = () => {
   const { signOut } = useAuth();
@@ -12,20 +22,32 @@ export const ProfilePage = () => {
   const { profileState, updateProfilePicture, updateProfile } = useProfile({
     userId,
   });
+
+  const [state, setState] = useState<"opened" | "closed">("closed");
+  const handleCancel = () => {
+    setState("closed");
+  };
+  const handleSignOut = () => {
+    signOut();
+  };
+
   return (
     <>
       <AppBar position="sticky">
-        <Toolbar>
-          <Link to="/">
-            <BackButton edge="start" sx={{ marginRight: 2 }} />
-          </Link>
-          <Typography variant="h6" sx={{ flex: 1 }}>
-            Profile
-          </Typography>
-        </Toolbar>
+        <Container maxWidth="sm" disableGutters>
+          <Toolbar>
+            <Link to="/">
+              <BackButton edge="start" sx={{ marginRight: 2 }} />
+            </Link>
+            <Typography variant="h6" sx={{ flex: 1 }}>
+              Profile
+            </Typography>
+          </Toolbar>
+        </Container>
       </AppBar>
       {profileState.status === "success" && (
-        <Box
+        <Container
+          maxWidth="sm"
           sx={{
             p: 2,
           }}
@@ -42,13 +64,27 @@ export const ProfilePage = () => {
 
           <Button
             sx={{ marginTop: 2 }}
+            variant="outlined"
             onClick={() => {
-              signOut();
+              setState("opened");
             }}
+            startIcon={<ExitToAppIcon />}
           >
             Sign Out
           </Button>
-        </Box>
+
+          <Dialog open={state === "opened"} onClose={handleCancel}>
+            <DialogTitle>Sign out of Fake ID?</DialogTitle>
+            <DialogActions>
+              <Button variant="text" fullWidth={false} onClick={handleCancel}>
+                Cancel
+              </Button>
+              <Button variant="text" fullWidth={false} onClick={handleSignOut}>
+                Sign Out
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </Container>
       )}
     </>
   );

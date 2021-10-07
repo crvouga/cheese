@@ -1,6 +1,6 @@
 import UploadIcon from "@mui/icons-material/Upload";
 import { LoadingButton } from "@mui/lab";
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Box, Typography } from "@mui/material";
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
@@ -39,17 +39,20 @@ export const ProfilePictureForm = ({
           alignItems: "center",
         }}
       >
+        <Typography color="text.secondary" variant="subtitle2" gutterBottom>
+          Profile Picture
+        </Typography>
+        <Avatar
+          sx={{
+            width: "132px",
+            height: "132px",
+            marginBottom: 1,
+          }}
+          variant="rounded"
+          src={profilePictureUrl}
+        />
         <div {...getRootProps()}>
           <input {...getInputProps()} />
-          <Avatar
-            sx={{
-              width: "132px",
-              height: "132px",
-              marginBottom: 1,
-            }}
-            variant="rounded"
-            src={profilePictureUrl}
-          />
           <LoadingButton
             fullWidth={false}
             startIcon={<UploadIcon />}

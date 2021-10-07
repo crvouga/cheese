@@ -1,6 +1,6 @@
-import { Box, Button, AppBar, Toolbar, Typography } from "@mui/material";
-import React from "react";
 import GoogleIcon from "@mui/icons-material/Google";
+import { AppBar, Button, Container, Toolbar, Typography } from "@mui/material";
+import React from "react";
 import { useAuth } from "../data-access";
 
 export const AuthPage = () => {
@@ -14,7 +14,7 @@ export const AuthPage = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Box sx={{ p: 2 }}>
+      <Container maxWidth="sm" sx={{ p: 2 }}>
         <Button
           startIcon={<GoogleIcon />}
           onClick={() => {
@@ -23,7 +23,7 @@ export const AuthPage = () => {
         >
           Continue With Google
         </Button>
-      </Box>
+      </Container>
     </>
   );
 };
