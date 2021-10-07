@@ -1,12 +1,20 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import {
+  Button,
+  AppBar,
+  Box,
+  Divider,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { BackButton } from "../BackButton";
-import { useProfile, useAuthUser } from "../data-access";
+import { useProfile, useAuthUser, useAuth } from "../data-access";
 import { ProfileDisplayNameForm } from "./ProfileDisplayNameForm";
 import { ProfilePictureForm } from "./ProfilePictureForm";
 
 export const ProfilePage = () => {
+  const { signOut } = useAuth();
   const { userId } = useAuthUser();
   const { profileState, updateProfilePicture, updateDisplayName } = useProfile({
     userId,
@@ -37,6 +45,20 @@ export const ProfilePage = () => {
             displayName={profileState.profile.displayName}
             onUpdate={updateDisplayName}
           />
+
+          <Divider
+            sx={{
+              marginY: 2,
+            }}
+          />
+
+          <Button
+            onClick={() => {
+              signOut();
+            }}
+          >
+            Sign Out
+          </Button>
         </Box>
       )}
     </>
