@@ -48,7 +48,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && firebase deploy"
+    "generate-assets": "npx pwa-asset-generator public/cheese.jpeg public/pwa --manifest public/manifest.json --index public/index.html --favicon"
   },
   "eslintConfig": {
     "extends": [
