@@ -127,7 +127,6 @@ const Chip = ({ title }: { title: string }) => {
         backgroundColor: GCU_COLOR.orange,
         padding: `0 ${spacing(1 / 2)}`,
         borderRadius: `calc(${BORDER_RADIUS} *  1/2)`,
-        fontWeight: "bolder",
         color: "#fff",
       }}
     >
