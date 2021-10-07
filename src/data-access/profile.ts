@@ -6,7 +6,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import create from "zustand";
 import { generateId } from "../utils";
 import { firestore, storage } from "./firebase";

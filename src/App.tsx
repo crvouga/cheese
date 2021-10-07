@@ -1,6 +1,6 @@
-import { Switch, Route } from "react-router-dom";
 import React from "react";
-import { useAuth, useProfile } from "./data-access";
+import { Route, Switch } from "react-router-dom";
+import { useAuth } from "./data-access";
 import { LoadingPage } from "./LoadingPage";
 import { AuthPage } from "./pages/auth";
 import { HomePage } from "./pages/home";
