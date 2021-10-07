@@ -15,6 +15,7 @@ type IProfile = {
   userId: string;
   displayName?: string;
   profilePictureUrl?: string;
+  gcuLastUpdatedDatetime?: string;
 };
 
 type IProfileState =
@@ -79,19 +80,13 @@ export const useProfile = ({ userId }: { userId: string }) => {
     });
   };
 
-  const updateDisplayName = async ({
-    displayName,
-  }: {
-    displayName?: string;
-  }) => {
-    await updateDoc(getProfileDocRef({ userId }), {
-      displayName,
-    });
+  const updateProfile = async (profile: Partial<IProfile>) => {
+    await updateDoc(getProfileDocRef({ userId }), profile);
   };
 
   return {
     profileState,
     updateProfilePicture,
-    updateDisplayName,
+    updateProfile,
   };
 };

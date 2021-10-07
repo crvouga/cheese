@@ -8,27 +8,33 @@ import { spacing, theme } from "./theme";
 
 export const GCUApp = () => {
   const { userId } = useAuthUser();
-  const { profileState } = useProfile({ userId });
+  const { profileState, updateProfile } = useProfile({ userId });
 
-  if (profileState.status === "success") {
-    return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-
-        <GCUTopBar title="Student ID" />
-
-        <div style={{ maxWidth: "480px", margin: "auto", padding: spacing(1) }}>
-          <GCUStudentIdCard
-            src={profileState.profile.profilePictureUrl}
-            name={profileState.profile.displayName}
-          />
-        </div>
-
-        <GCUBottomBar />
-        <GCUBottomBarGutter />
-      </ThemeProvider>
-    );
+  if (profileState.status !== "success") {
+    return <></>;
   }
 
-  return <></>;
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      <GCUTopBar title="Student ID" />
+
+      <div style={{ maxWidth: "480px", margin: "auto", padding: spacing(1) }}>
+        <GCUStudentIdCard
+          src={profileState.profile.profilePictureUrl}
+          name={profileState.profile.displayName}
+          lastUpdatedDatetime={profileState.profile.gcuLastUpdatedDatetime}
+          onRefresh={() => {
+            updateProfile({
+              gcuLastUpdatedDatetime: new Date().toISOString(),
+            });
+          }}
+        />
+      </div>
+
+      <GCUBottomBar />
+      <GCUBottomBarGutter />
+    </ThemeProvider>
+  );
 };

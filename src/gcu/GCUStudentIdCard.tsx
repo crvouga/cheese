@@ -37,7 +37,37 @@ const Header = () => {
   );
 };
 
-const Footer = () => {
+const formatAMPM = (date: Date) => {
+  let hours = date.getHours();
+  let minutes: string | number = date.getMinutes();
+  let ampm = hours >= 12 ? "pm" : "am";
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  let strTime = hours + ":" + minutes + "" + ampm;
+  return strTime;
+};
+
+const formateDatetime = (datetime?: string) => {
+  const date = datetime ? new Date(datetime) : new Date();
+
+  const locale =
+    navigator.languages !== undefined
+      ? navigator.languages[0]
+      : navigator.language;
+
+  const fullMonth = date.toLocaleDateString(locale, { month: "long" });
+
+  const day = date.getDate();
+
+  const year = date.getFullYear();
+
+  const time = formatAMPM(date);
+
+  return `${fullMonth} ${day}, ${year}, ${time}`;
+};
+
+const Footer = ({ lastUpdatedDatetime }: { lastUpdatedDatetime?: string }) => {
   return (
     <div
       style={{
@@ -64,16 +94,17 @@ const Footer = () => {
           Last Updated:
         </div>
         <div style={{ fontSize: `1.2em`, fontWeight: "bold", color: "#fff" }}>
-          October 6, 2021, 1:38pm
+          {formateDatetime(lastUpdatedDatetime)}
         </div>
       </div>
     </div>
   );
 };
 
-const RefreshButton = () => {
+const RefreshButton = ({ onClick }: { onClick?: () => void }) => {
   return (
     <div
+      onClick={onClick}
       style={{
         color: GCU_COLOR.purple,
         backgroundColor: GCU_COLOR.extraLightPurple,
@@ -152,9 +183,13 @@ const Avatar = ({ src, alt }: { src?: string; alt?: string }) => {
 export const GCUStudentIdCard = ({
   src,
   name,
+  lastUpdatedDatetime,
+  onRefresh,
 }: {
   src?: string;
   name?: string;
+  lastUpdatedDatetime?: string;
+  onRefresh?: () => void;
 }) => {
   return (
     <div
@@ -184,7 +219,7 @@ export const GCUStudentIdCard = ({
             flexDirection: "row-reverse",
           }}
         >
-          <RefreshButton />
+          <RefreshButton onClick={onRefresh} />
         </div>
 
         <div
@@ -199,7 +234,12 @@ export const GCUStudentIdCard = ({
           <Avatar src={src} alt={name} />
 
           <div
-            style={{ color: "#000", fontSize: "1.75em", fontWeight: "bold" }}
+            style={{
+              color: "#000",
+              fontSize: "1.75em",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
           >
             {name}
           </div>
@@ -212,7 +252,7 @@ export const GCUStudentIdCard = ({
 
       <GCULoadingBar />
 
-      <Footer />
+      <Footer lastUpdatedDatetime={lastUpdatedDatetime} />
     </div>
   );
 };

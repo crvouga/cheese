@@ -9,7 +9,7 @@ import { ProfilePictureForm } from "./ProfilePictureForm";
 export const ProfilePage = () => {
   const { signOut } = useAuth();
   const { userId } = useAuthUser();
-  const { profileState, updateProfilePicture, updateDisplayName } = useProfile({
+  const { profileState, updateProfilePicture, updateProfile } = useProfile({
     userId,
   });
   return (
@@ -37,7 +37,7 @@ export const ProfilePage = () => {
 
           <ProfileDisplayNameForm
             displayName={profileState.profile.displayName}
-            onUpdate={updateDisplayName}
+            onUpdate={updateProfile}
           />
 
           <Button
