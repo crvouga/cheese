@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { GCU_COLOR } from "./theme";
 import gsap from "gsap";
+import classes from "./GCULoadingBar.module.css";
 
 export const GCULoadingBar = () => {
   const leftRef = useRef<HTMLDivElement | null>(null);
@@ -19,11 +20,18 @@ export const GCULoadingBar = () => {
   }, []);
 
   return (
-    <div style={{ width: "100%", height: "28px", display: "bold" }}>
+    <div
+      style={{
+        width: "100%",
+        height: "28px",
+        display: "bold",
+      }}
+    >
       <div
+        className={classes.leftToRight}
         style={{
           backgroundColor: GCU_COLOR.green,
-          width: "0%",
+          width: "100%",
           height: "100%",
         }}
       />

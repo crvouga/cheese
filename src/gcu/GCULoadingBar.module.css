@@ -1,0 +1,13 @@
+.leftToRight {
+  animation: progressBar 3s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
