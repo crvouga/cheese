@@ -70,6 +70,7 @@ export const GCUBottomBar = () => {
   return (
     <div
       style={{
+        zIndex: 10,
         position: "fixed",
         top: "auto",
         bottom: 0,

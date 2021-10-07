@@ -5,6 +5,7 @@ export const GCUTopBar = ({ title }: { title: string }) => {
   return (
     <div
       style={{
+        zIndex: 10,
         position: "sticky",
         top: 0,
         left: 0,
