@@ -31,7 +31,7 @@ export const GCU_HEIGHTS = {
   topBar: "56px",
   bottomBar: "56px",
   cardBar: "56px",
-  barCodeHeight: 72,
+  barCodeHeight: 60,
 };
 
 export const theme = createTheme({

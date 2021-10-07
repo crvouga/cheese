@@ -135,9 +135,9 @@ const Chip = ({ title }: { title: string }) => {
   );
 };
 
-const Barcode = () => {
+const Barcode = ({ value }: { value: string }) => {
   const { inputRef } = useBarcode({
-    value: "hello world",
+    value,
     options: {
       height: GCU_HEIGHTS.barCodeHeight,
       displayValue: false,
@@ -245,7 +245,7 @@ export const GCUStudentIdCard = ({
 
           <Chip title="Student" />
 
-          <Barcode />
+          <Barcode value={`${name ?? ""} Hello World`} />
         </div>
       </div>
 
