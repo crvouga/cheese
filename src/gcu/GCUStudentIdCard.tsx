@@ -1,6 +1,8 @@
 import React from "react";
+import { useBarcode } from "react-barcodes";
 import { GCULogoLong } from "./GCULogoLong";
 import { BORDER_RADIUS, GCU_COLOR, PURPLE_GRADIENT, spacing } from "./theme";
+import CachedIcon from "@mui/icons-material/Cached";
 
 const Header = () => {
   return (
@@ -14,7 +16,7 @@ const Header = () => {
         style={{
           margin: "auto",
           // padding: SPACING,
-          width: "66.66%",
+          width: "60%",
         }}
       >
         <GCULogoLong />
@@ -61,6 +63,14 @@ export const GCUStudentIdCard = ({
   src?: string;
   name?: string;
 }) => {
+  const { inputRef } = useBarcode({
+    value: "hello w",
+    options: {
+      height: 48,
+      displayValue: false,
+    },
+  });
+
   return (
     <div
       style={{
@@ -82,6 +92,27 @@ export const GCUStudentIdCard = ({
           alignItems: "center",
         }}
       >
+        <div
+          style={{
+            color: GCU_COLOR.purple,
+            display: "flex",
+            width: "100%",
+            flexDirection: "row-reverse",
+          }}
+        >
+          <div
+            style={{
+              borderRadius: "8px",
+              padding: "4px",
+              backgroundColor: GCU_COLOR.extraLightPurple,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <CachedIcon />
+          </div>
+        </div>
         <img
           style={{
             width: "80%",
@@ -107,7 +138,9 @@ export const GCUStudentIdCard = ({
           Student
         </span>
 
-        {/* <Barcode value="https://www.labnol.org/reverse/" /> */}
+        <div style={{ width: "80%", marginBottom: -12 }}>
+          <canvas width="100%" ref={inputRef} />
+        </div>
       </div>
 
       <Footer />
