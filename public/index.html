@@ -21,13 +21,14 @@
       content="black-translucent"
     />
 
-    <!--   -->
+    <!--  pwa styles  -->
     <style>
       body {
         overflow: hidden;
-      }
+        min-height: calc(100% + env(safe-area-inset-top));
+        padding: env(safe-area-inset-top) env(safe-area-inset-right)
+          env(safe-area-inset-bottom) env(safe-area-inset-left);
 
-      #root {
         overflow: hidden;
         height: 100%;
         position: fixed;
@@ -196,9 +197,9 @@
       media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
     />
   </head>
-  <body>
+  <body id="root">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
