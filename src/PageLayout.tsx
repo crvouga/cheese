@@ -12,22 +12,24 @@ export const PageLayout = ({
   return (
     <div
       style={{
-        height: "100%",
-        maxHeight: "100%",
-        width: "100%",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
+        //
         position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        minHeight: "calc(100% + env(safe-area-inset-top))",
-        padding: `env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)`,
       }}
     >
-      {topBar}
+      <div
+        style={{
+          paddingTop: `env(safe-area-inset-top)`,
+        }}
+      >
+        {topBar}
+      </div>
       <div
         style={{
           flex: 1,
@@ -37,7 +39,15 @@ export const PageLayout = ({
       >
         {body}
       </div>
-      {bottomBar}
+      {bottomBar && (
+        <div
+          style={{
+            paddingBottom: "env(safe-area-inset-bottom)",
+          }}
+        >
+          {bottomBar}
+        </div>
+      )}
     </div>
   );
 };
