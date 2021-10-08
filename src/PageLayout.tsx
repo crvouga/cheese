@@ -24,9 +24,9 @@ export const PageLayout = ({
       }}
     >
       <div
-        style={{
-          paddingTop: `env(safe-area-inset-top)`,
-        }}
+      // style={{
+      //   paddingTop: `env(safe-area-inset-top)`,
+      // }}
       >
         {topBar}
       </div>
@@ -41,9 +41,9 @@ export const PageLayout = ({
       </div>
       {bottomBar && (
         <div
-          style={{
-            paddingBottom: "env(safe-area-inset-bottom)",
-          }}
+        // style={{
+        //   paddingBottom: "env(safe-area-inset-bottom)",
+        // }}
         >
           {bottomBar}
         </div>
