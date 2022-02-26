@@ -1,15 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { AppProviders } from "./AppProviders";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppProviders>
-      <App />
-    </AppProviders>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

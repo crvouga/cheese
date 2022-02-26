@@ -178,8 +178,19 @@
       href="pwa/apple-splash-1136-640.jpg"
       media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
     />
+
+
+    <!-- safe area styles -->
+
+    <style>
+      #root {
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      }
+    </style>
+
   </head>
-  <body id="root">
+  <body>
+    <div id="root"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <!--
